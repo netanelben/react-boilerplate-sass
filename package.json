@@ -1,0 +1,28 @@
+{
+  "name": "react-app-with-sass",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "react-doc-generator": "^1.2.5"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "PORT=4000 npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "create-doc": "react-doc-generator src -o DOCUMENTATION.md",
+    "sasslint": "sass-lint -v -q"
+  }
+}
